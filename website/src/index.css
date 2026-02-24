@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-x: hidden;
+}
+
+html {
+	overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat";
+  box-sizing: border-box;
+  font-weight: 500;
+  color: #3e3f3f;
+}
+
+@layer base {
+  :root {
+    --primary-color: #3e6ae1;
+    --text-color: #171a20;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.bg-secondary {
+  background-color: #f8f7f7;
+}
+
+.hover-primary:hover {
+  color: var(--primary-color);
+}
+.btn-hover:hover {
+  background-color: #315aca;
+}
+
+.arrow {
+  transform: translate(0, 0);
+  background-color: rgb(244, 244, 244, 0.8);
+  box-shadow: 0px 0px 2px #424242;
+  transition: all 0.2s ease;
+}
+
+.arrow-left:hover {
+  transform: translateX(-2px);
+}
+
+.arrow-right:hover {
+  transform: translateX(2px);
+}
+
+.img-container {
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #f4f3f8;
+}
+
+.img-container:hover img {
+  transform: scale(1.05);
+}
+
+.img-container img {
+  object-fit: fill;
+  transform: scale(1);
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.about-info {
+  background-color: #315aca29;
+}
+
+.blue-bc {
+  background-color: #cedef3;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+	background-color: var(--text-color);
+}
+
+.circle {
+	width: 200px;
+	height: 200px;
+	z-index: -1;
+	background-color: #FFE19C;
+	border-radius: 5%;
+}
+
+.circle-first {
+	left: -100px;
+	top: 30px;
+}
+
+.inner-circle {
+	width: 100px;
+	height: 100px;
+	background-color: #FF784F;
+	border-radius: 5%;
+	position: relative;
+	transform-origin: center;
+	transform: translate(50%, 50%);
+}
+
+.circle-second {
+	right: -100px;
+	top: 410px;
+}
