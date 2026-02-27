@@ -186,8 +186,8 @@ const ImageSlider = ({ currentImage }) => {
           className="flex h-full transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${currentImage * 100}%)` }}
         >
-          {slides.map((slide, i) => (
-            <div key={i} className="w-full h-full flex-shrink-0 flex items-center justify-center">
+          {slides.map(slide => (
+            <div key={slide.title} className="w-full h-full flex-shrink-0 flex items-center justify-center">
               <img
                 src={slide.image}
                 alt={slide.title}

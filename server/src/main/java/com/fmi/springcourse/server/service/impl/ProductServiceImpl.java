@@ -26,7 +26,7 @@ import java.util.UUID;
 @Service
 public class ProductServiceImpl implements ProductService {
 	private static final int MAX_PAGE_SIZE = 500;
-	private static final Set<String> ALLOWED_SORT_FIELDS = Set.of("price", "createdAt");
+	private static final Set<String> ALLOWED_SORT_FIELDS = Set.of("createdAt");
 	private final ProductRepository repository;
 	
 	public ProductServiceImpl(ProductRepository repository) {

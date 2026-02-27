@@ -73,7 +73,7 @@ export const FAQ = () => {
             const isOpen = openIndex === i;
             return (
               <div
-                key={i}
+                key={faq.question}
                 className={`bg-white border border-border rounded-[5px] px-5 sm:px-6 transition-colors`}
               >
                 <button

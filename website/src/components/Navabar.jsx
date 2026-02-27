@@ -28,13 +28,13 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-7">
           <nav className="hidden md:flex items-center gap-7 flex-1 justify-center">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 className="hover-primary text-sm font-semibold text-foreground/70 transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
           <div className="flex items-center gap-2 bg-secondary rounded-[5px] px-4 py-2.5 border border-border">

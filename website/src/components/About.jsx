@@ -1,5 +1,4 @@
 import underline from "../assets/underline.svg";
-import about from "../assets/about.png";
 
 const About = () => {
   return (

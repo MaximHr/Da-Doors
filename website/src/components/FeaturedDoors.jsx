@@ -22,9 +22,7 @@ const FeaturedDoors = ({doors}) => {
         </div>
         <div className="flex flex-col items-center">
           <div className="sm:grid-cols-2 grid md:grid-cols-3 lg:grid-cols-4 gap-7 px-8">
-            {doors && doors.map((door) => (
-              <Card door={door} key={door.slug} />
-            ))}
+            {doors && doors.map((door) => <Card door={door} key={door.slug} />)}
           </div>
           <div className="flex mt-7 sm:mt-9">
             <Link

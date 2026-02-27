@@ -41,6 +41,11 @@ a {
   background-color: var(--primary-color);
 }
 
+.bg-primary:disabled {
+	opacity: 0.9;
+	cursor: auto;
+}
+
 .text-primary {
   color: var(--primary-color);
 }
@@ -52,7 +57,7 @@ a {
 .hover-primary:hover {
   color: var(--primary-color);
 }
-.btn-hover:hover {
+.btn-hover:hover:not(:disabled) {
   background-color: #315aca;
 }
 

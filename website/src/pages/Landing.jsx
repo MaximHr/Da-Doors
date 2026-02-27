@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import About from "../components/About";
 import { FAQ } from "../components/FAQ";
 import FeaturedDoors from "../components/FeaturedDoors";
-import Footer from "../components/Footer";
 import HeroSlider from "../components/HeroSlider";
 import { getHomePageDoors } from "../api";
 
@@ -32,7 +31,6 @@ const Landing = () => {
       <FeaturedDoors doors={doors} />
       <About />
       <FAQ />
-      <Footer />
     </>
   );
 };
