@@ -2,10 +2,10 @@ import Card from "./Card";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 
-const FeaturedDoors = ({doors}) => {
+const FeaturedDoors = ({ doors }) => {
   return (
     <>
-      <section className="pt-16 bg-background">
+      <section className="max-w-7xl m-auto pt-16 bg-background">
         <div className="max-w-7xl mx-auto px-8">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div>
@@ -22,7 +22,12 @@ const FeaturedDoors = ({doors}) => {
         </div>
         <div className="flex flex-col items-center">
           <div className="sm:grid-cols-2 grid md:grid-cols-3 lg:grid-cols-4 gap-7 px-8">
-            {doors && doors.map((door) => <Card door={door} key={door.slug} />)}
+            {doors &&
+              doors.map((door) => (
+                <div key={door.slug}>
+                  <Card door={door} />
+                </div>
+              ))}
           </div>
           <div className="flex mt-7 sm:mt-9">
             <Link

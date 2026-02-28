@@ -4,6 +4,7 @@ import { FAQ } from "../components/FAQ";
 import FeaturedDoors from "../components/FeaturedDoors";
 import HeroSlider from "../components/HeroSlider";
 import { getHomePageDoors } from "../api";
+import Contact from "../components/Contact";
 
 const Landing = () => {
   const [doors, setDoors] = useState([{}, {}, {}, {}]);
@@ -31,6 +32,7 @@ const Landing = () => {
       <FeaturedDoors doors={doors} />
       <About />
       <FAQ />
+			<Contact />
     </>
   );
 };

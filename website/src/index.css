@@ -100,14 +100,15 @@ a {
 }
 
 .blue-bc {
-  background-color: #cedef3;
-  position: relative;
-  display: flex;
-  justify-content: center;
+  background-color: #d9e7fa;
 }
 
 .footer {
 	background-color: var(--text-color);
+}
+
+.yellowish-bc {
+	background-color: #FFE19C;
 }
 
 .circle {
@@ -136,4 +137,8 @@ a {
 .circle-second {
 	right: -100px;
 	top: 410px;
+}
+
+.contact-circle {
+	background-color: #cedafd;
 }

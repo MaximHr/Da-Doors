@@ -2,28 +2,14 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 import hero1 from "../assets/hero-1.jpg";
-import hero2 from "../assets/hero-2.jpg";
-import hero3 from "../assets/hero-3.jpg";
 
 const slides = [
   {
     image: hero1,
     title: "The Grand\nEntrance",
     subtitle: "Solid wood & steel front doors built for lasting impressions.",
-    cta: "Научи повече",
-  },
-  {
-    image: hero2,
-    title: "Light. Space.\nElegance.",
-    subtitle: "French doors and glass panels that transform your interiors.",
-    cta: "Научи повече",
-  },
-  {
-    image: hero3,
-    title: "Designed for\nBold Living",
-    subtitle: "Architectural steel pivot doors for the contemporary home.",
-    cta: "Научи повече",
-  },
+    cta: "Разгледай всички",
+  }
 ];
 
 const animationTime = 500;
@@ -55,9 +41,10 @@ const HeroSlider = () => {
 
   return (
     <div 
-      className="relative w-full h-screen overflow-hidden"
+      className="max-w-7xl m-auto relative w-full h-screen overflow-hidden"
       onTouchStart={handleTouchStart}
       onTouchEnd={(e) => {
+        if (slides.length <= 1) return;
         const next = () => {
           const newIndex = (currentImage + 1) % slides.length;
           setCurrentImage(newIndex);
@@ -94,7 +81,7 @@ const HeroSlider = () => {
           </p>
           <div className="flex gap-7">
             <Link
-              to="/order"
+              to="/doors"
               className="flex items-center gap-1 text-sm md:text-lg btn-hover rounded-[5px] px-8 py-3 font-semibold bg-primary text-white transition"
             >
               {slides[currentText].cta}
@@ -137,9 +124,14 @@ const Surroundings = ({
   const prev = () => goTo((currentImage - 1 + slides.length) % slides.length);
 
   useEffect(() => {
+    if (slides.length <= 1) return;
     const t = setInterval(next, slideAfter);
     return () => clearInterval(t);
   }, [next]);
+
+  if (slides.length <= 1) {
+    return null;
+  }
 
   return (
     <>

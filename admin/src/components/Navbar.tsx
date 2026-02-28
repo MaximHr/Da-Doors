@@ -8,7 +8,6 @@ const Navbar = ({ user }: { user: UserT }) => {
       <div className="max-w-7xl mx-auto px-7 h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <h1 className="text-xl tracking-tight">Doors Website</h1>
-
           <nav className="hidden md:flex items-center gap-2">
             <Link to="/admin/products">
               <Button variant="ghost" className="text-sm">

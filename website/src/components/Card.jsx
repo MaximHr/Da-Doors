@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 const Card = ({ door }) => {
   return (
-    <Link to={door.slug} className="min-w-60 card rounded-[5px] flex flex-col">
+    <Link to={`/door/${door.slug}`} className="min-w-60 card rounded-[5px] flex flex-col">
       <div className="img-container p-5 rounded-t-[5px]">
         <img
           src={import.meta.env.VITE_R2_URL + `/image/${door.titleImage}`}

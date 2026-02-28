@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Navabar from "./components/Navabar.jsx";
 import Doors from "./pages/Doors.jsx";
 import Footer from "./components/Footer.jsx";
+import Details from "./pages/Details.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -12,6 +14,8 @@ createRoot(document.getElementById("root")).render(
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/doors" element={<Doors />} />
+      <Route path="/door/:slug" element={<Details />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
 		<Footer />
   </BrowserRouter>,

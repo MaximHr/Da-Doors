@@ -47,7 +47,7 @@ export const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="bg-background mb-16 relative">
+    <section id="faq" className="bg-background relative">
       <div className="hidden lg:block circle circle-first absolute">
         <div className="inner-circle"></div>
       </div>
