@@ -18,4 +18,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	Page<Product> findAll(Pageable pageable);
 	
 	List<Product> findByIsOnMainPage(boolean isOnMainPage);
+	
+	Page<Product> findAllBySeries(String series, Pageable pageable);
 }

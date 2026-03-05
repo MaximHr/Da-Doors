@@ -31,8 +31,8 @@ export async function listProducts(pageNumber: number, size: number) {
   checkIsForbidden(res);
   const data = await res.json();
   checkIsOk(res, data);
-
-  return data;
+	
+	return data;
 }
 
 export async function deleteProduct(id: number): Promise<string> {
@@ -82,6 +82,6 @@ export async function fetchProductBySlug(
   checkIsForbidden(res);
   const data = await res.json();
   checkIsOk(res, data);
-
+	
   return data;
 }

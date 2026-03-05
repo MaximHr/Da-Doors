@@ -1,15 +1,25 @@
 import { useEffect, useState } from "react";
-import { fetchDoors } from "../api";
+import { fetchDoors, fetchDoorsBySeries } from "../api";
 import Card from "../components/Card";
+import { useParams } from "react-router";
 
-const Doors = () => {
+const Doors = ({ series }) => {
   const [page, setPage] = useState(0);
   const [doors, setDoors] = useState([]);
   const [totalElements, setTotalElements] = useState();
   const [totalPages, setTotalPages] = useState(0);
 
+  const { name } = useParams();
+
   const loadProducts = async (page) => {
-    const data = await fetchDoors(page);
+    let data;
+
+    if (!series) {
+      data = await fetchDoors(page);
+    } else {
+      data = await fetchDoorsBySeries(page, name);
+    }
+
     setDoors(data.content);
     setTotalElements(data.totalElements);
     setTotalPages(data.totalPages);
@@ -34,14 +44,17 @@ const Doors = () => {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-7">
           <div>
             <h2 className="font-black font-display text-3xl md:text-4xl leading-none whitespace-pre-line">
-              Нашите Врати
-              {totalElements && ` (${totalElements})`}
+              {series ? `Серия ${name}`  : "Нашите Врати"}
+              {totalElements > 0 && ` (${totalElements})`}
             </h2>
           </div>
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7">
-          {doors && doors.map((door) => <Card door={door} key={door.slug} />)}
+          {doors &&
+            doors.map((door) => (
+              <Card showSeries={false} door={door} key={door.slug} />
+            ))}
         </div>
 
         {totalPages > 1 && (

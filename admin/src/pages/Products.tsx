@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { ToastContainer } from "react-toastify";
 
-const PAGE_SIZE = 5;
+const PAGE_SIZE = 20;
 
 const Products = () => {
   const [products, setProducts] = useState<ProductTListResponse[]>([]);

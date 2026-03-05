@@ -2,64 +2,36 @@ import AddProductBasicInfo from "@/components/AddProductBasicInfo.tsx";
 import { Undo2 } from "lucide-react";
 import { Button } from "./ui/button";
 import { handleError } from "@/api/errorHandler";
-import { type Dispatch, type SetStateAction } from "react";
 import { ToastContainer } from "react-toastify";
 import { Link } from "react-router";
+import type { ProductFormCommonAttributes, ProductFormStateSetters } from "@/types/product";
 
 interface ProductEditPropsT {
-  name: string;
-  setName: Dispatch<SetStateAction<string>>;
-  description: string;
-  setDescription: Dispatch<SetStateAction<string>>;
-  discount: number | "";
-  setDiscount: Dispatch<SetStateAction<number | "">>;
-  price: number | undefined;
-  setPrice: Dispatch<SetStateAction<number | undefined>>;
-  quantity: number | "";
-  setQuantity: Dispatch<SetStateAction<number | "">>;
-  images: string[];
-  setImages: Dispatch<SetStateAction<string[]>>;
+  values: ProductFormCommonAttributes;
+	setters: ProductFormStateSetters;
   handleProductSubmission: () => Promise<void>;
   shouldAdd: boolean;
-  titleImage: string;
-  setTitleImage: Dispatch<SetStateAction<string>>;
-  setIsOnMainPage: Dispatch<SetStateAction<boolean>>;
-  isOnMainPage: boolean;
 }
 
 export const ProductEdit = ({
-  name,
-  setName,
-  price,
-  setPrice,
-  images,
-  setImages,
-  description,
-  setDescription,
-  discount,
-  setDiscount,
-  quantity,
-  setQuantity,
+  values,
+	setters,
   handleProductSubmission,
   shouldAdd,
-  titleImage,
-  setTitleImage,
-  setIsOnMainPage,
-  isOnMainPage,
 }: ProductEditPropsT) => {
   const submitHandler = () => {
-    if (name.trim().length === 0) {
+    if (values.title.trim().length === 0) {
       handleError("Field name is required");
       return;
-    } else if (description.trim().length === 0) {
+    } else if (values.description.trim().length === 0) {
       handleError("Field description is required.");
       return;
-    } else if (titleImage.trim().length === 0) {
+    } else if (values.titleImage.trim().length === 0) {
       handleError("Title image is required.");
 			return;
     }
-    if (discount === "") {
-      setDiscount(0);
+    if (values.discount === "") {
+      setters.setDiscount(0);
     }
 
     handleProductSubmission();
@@ -79,22 +51,8 @@ export const ProductEdit = ({
       </div>
 
       <AddProductBasicInfo
-        name={name}
-        description={description}
-        quantity={quantity}
-        price={price}
-        discount={discount}
-        images={images}
-        setName={setName}
-        setDescription={setDescription}
-        setQuantity={setQuantity}
-        setPrice={setPrice}
-        setImages={setImages}
-        setDiscount={setDiscount}
-        titleImage={titleImage}
-        setTitleImage={setTitleImage}
-        setIsOnMainPage={setIsOnMainPage}
-        isOnMainPage={isOnMainPage}
+				values={values}
+				setters={setters}
       />
       <div className="flex justify-end max-w-lg mt-3 gap-3">
         <Button

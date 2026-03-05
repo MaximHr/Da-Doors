@@ -21,4 +21,6 @@ public interface ProductService {
 	void deleteProduct(Long id);
 	
 	PageResponse<ProductListDto> listProducts(Pageable pageable);
+	
+	PageResponse<ProductListDto> listProductsBySeries(String series, Pageable pageable);
 }

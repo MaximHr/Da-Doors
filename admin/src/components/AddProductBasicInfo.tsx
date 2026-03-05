@@ -12,43 +12,23 @@ import Editor, {
 import { Trash } from "lucide-react";
 import ImageUploadButton from "@/components/ImageUploadButton";
 import { deleteImage } from "@/api/images";
-import type { ChangeEvent, Dispatch, SetStateAction } from "react";
+import type { ChangeEvent } from "react";
+import type {
+  ProductFormCommonAttributes,
+  ProductFormStateSetters,
+} from "@/types/product";
 
 const AddProductBasicInfo = ({
-  name,
-  description,
-  price,
-  setName,
-  setDescription,
-  images,
-  setPrice,
-  setImages,
-  titleImage,
-  setTitleImage,
-  isOnMainPage,
-  setIsOnMainPage,
+  values,
+  setters,
 }: {
-  name: string;
-  images: string[];
-  discount: number | "";
-  description: string;
-  quantity: number | "";
-  price: number | undefined;
-  setName: Dispatch<SetStateAction<string>>;
-  setDescription: Dispatch<SetStateAction<string>>;
-  setQuantity: Dispatch<SetStateAction<number | "">>;
-  setPrice: Dispatch<SetStateAction<number | undefined>>;
-  setDiscount: Dispatch<SetStateAction<number | "">>;
-  setImages: Dispatch<SetStateAction<string[]>>;
-  titleImage: string;
-  setTitleImage: Dispatch<SetStateAction<string>>;
-  setIsOnMainPage: Dispatch<SetStateAction<boolean>>;
-  isOnMainPage: boolean;
+  values: ProductFormCommonAttributes;
+  setters: ProductFormStateSetters;
 }) => {
   const removeTitleImage = async () => {
     try {
-      setTitleImage("");
-      await deleteImage(titleImage);
+      setters.setTitleImage("");
+      await deleteImage(values.titleImage);
     } catch (err) {
       console.log(err);
     }
@@ -56,8 +36,9 @@ const AddProductBasicInfo = ({
 
   const removeImage = async (img: string) => {
     try {
-      const updatedImages = images.filter((image) => image != img);
-      setImages([...updatedImages]);
+      const updatedImages = values.images.filter((image) => image != img);
+      setters.setImages([...updatedImages]);
+
       await deleteImage(img);
     } catch (err) {
       console.log(err);
@@ -66,57 +47,146 @@ const AddProductBasicInfo = ({
 
   return (
     <form className="grid gap-6" onSubmit={(e) => e.preventDefault()}>
-      <div className="flex-col lg:flex-row flex gap-6 max-w-lg">
+      <div className="grid grid-cols-2 gap-6 max-w-lg">
         <div className="grid gap-3 flex-1/2">
           <Label htmlFor="name">Име</Label>
           <Input
             id="name"
             type="text"
-            placeholder="Метална врата"
             required
-            value={name}
+            value={values.title}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setName(e.target.value)
+              setters.setTitle(e.target.value)
             }
           />
         </div>
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="price">Цена (€) (опционално)</Label>
+          <Label htmlFor="series">Серия (опционално)</Label>
           <Input
-            id="price"
-            min={0}
-            type="number"
-            value={price}
+            id="series"
+            value={values.series}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setPrice(Number(e.target.value))
+              setters.setSeries(e.target.value)
+            }
+          />
+        </div>
+        <div className="grid gap-3 flex-1/2">
+          <Label htmlFor="model">Модел (опционално)</Label>
+          <Input
+            id="model"
+            value={values.model}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setters.setModel(e.target.value)
+            }
+          />
+        </div>
+        <div className="grid gap-3 flex-1/2">
+          <Label htmlFor="construction">Конструкция (опционално)</Label>
+          <Input
+            id="construction"
+            value={values.construction}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setters.setConstruction(e.target.value)
+            }
+          />
+        </div>
+        <div className="grid gap-3 flex-1/2">
+          <Label htmlFor="thickness">Дебелина на крилото в мм. (опционално)</Label>
+          <Input
+            id="thickness"
+						min={0}
+						type="number"
+            value={values.thickness}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setters.setThickness(Number(e.target.value))
+            }
+          />
+        </div>
+        <div className="grid gap-3 flex-1/2">
+          <Label htmlFor="innerStructure">Вътрешна структура (опционално)</Label>
+          <Input
+            id="innerStructure"
+            value={values.innerStructure}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setters.setInnerStructure(e.target.value)
+            }
+          />
+        </div>
+        <div className="grid gap-3 flex-1/2">
+          <Label htmlFor="core">Пълнеж (опционално)</Label>
+          <Input
+            id="core"
+            value={values.core}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setters.setCore(e.target.value)
+            }
+          />
+        </div>
+        <div className="grid gap-3 flex-1/2">
+          <Label htmlFor="frame">Каса (опционално)</Label>
+          <Input
+            id="frame"
+            value={values.frame}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setters.setFrame(e.target.value)
+            }
+          />
+        </div>
+        <div className="grid gap-3 flex-1/2">
+          <Label htmlFor="lockingMechanism">Тип заключване (опционално)</Label>
+          <Input
+            id="lockingMechanism"
+            value={values.lockingMechanism}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setters.setLockingMechanism(e.target.value)
+            }
+          />
+        </div>
+        <div className="grid gap-3 flex-1/2">
+          <Label htmlFor="primaryLock">Основна брава (опционално)</Label>
+          <Input
+            id="primaryLock"
+            value={values.primaryLock}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setters.setPrimaryLock(e.target.value)
+            }
+          />
+        </div>
+        <div className="grid gap-3 flex-1/2">
+          <Label htmlFor="finish">Покритие (опционално)</Label>
+          <Input
+            id="finish"
+            value={values.finish}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setters.setFinish(e.target.value)
             }
           />
         </div>
       </div>
       <div className="flex gap-2 items-center">
         <Checkbox
-          checked={isOnMainPage}
-          onCheckedChange={(value) => setIsOnMainPage(!!value)}
+          checked={values.isOnMainPage}
+          onCheckedChange={(value) => setters.setIsOnMainPage(!!value)}
         />
         <Label htmlFor="checkbox">Покажи ме на началната страница</Label>
       </div>
       <div className="grid gap-3">
         <Label htmlFor="image-btn">Качи основна снимка</Label>
         <ImageUploadButton
-          images={titleImage}
+          images={values.titleImage}
           className="max-w-lg h-[125px]"
           multiple={false}
-          setImagesUrl={setTitleImage}
+          setImagesUrl={setters.setTitleImage}
         />
-        {titleImage.trim().length != 0 && (
+        {values.titleImage.trim().length != 0 && (
           <div className="max-w-lg grid grid-cols-2 md:grid-cols-3 gap-2 ">
             <div
-              key={titleImage}
+              key={values.titleImage}
               className="border relative aspect-square overflow-hidden"
             >
               <img
                 className="p-2 w-full h-full object-contain"
-                src={`${import.meta.env.VITE_R2_URL}/image/${titleImage}`}
+                src={`${import.meta.env.VITE_R2_URL}/image/${values.titleImage}`}
                 alt="product image"
               />
               <div
@@ -132,14 +202,14 @@ const AddProductBasicInfo = ({
       <div className="grid gap-3">
         <Label htmlFor="image-btn">Качи допълнителни снимки (Опционално)</Label>
         <ImageUploadButton
-          images={images}
+          images={values.images}
           className="max-w-lg h-[125px]"
           multiple={true}
-          setImagesUrl={setImages}
+          setImagesUrl={setters.setImages}
         />
-        {images.length != 0 && (
+        {values.images.length != 0 && (
           <div className="max-w-lg grid grid-cols-2 md:grid-cols-3 gap-2 ">
-            {images.map((img) => (
+            {values.images.map((img) => (
               <div
                 key={img}
                 className="border relative aspect-square overflow-hidden"
@@ -163,8 +233,8 @@ const AddProductBasicInfo = ({
       <div className="grid gap-3">
         <Label htmlFor="description">Описание</Label>
         <Editor
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={values.description}
+          onChange={(e) => setters.setDescription(e.target.value)}
         >
           <Toolbar>
             <BtnBold />

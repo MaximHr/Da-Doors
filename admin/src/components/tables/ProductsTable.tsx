@@ -31,7 +31,7 @@ const ProductsTable = ({
           <TableRow>
             <TableHead className="w-26">Снимка</TableHead>
             <TableHead className="w-40">Име</TableHead>
-            <TableHead className="w-26">Цена</TableHead>
+            <TableHead className="w-26">Серия</TableHead>
             <TableHead className="w-26">Промени</TableHead>
             <TableHead className="w-26">Изтрий</TableHead>
           </TableRow>
@@ -59,7 +59,7 @@ const ProductsTable = ({
               <TableCell className="max-w-[220px] whitespace-normal wrap-break-word">
                 {product.title}
               </TableCell>
-              <TableCell>{product.price ? `€${product.price.toFixed(2)}` : "-"}</TableCell>
+              <TableCell>{product.series ? `${product.series}` : "-"}</TableCell>
               <TableCell>
                 <Button
                   size="sm"

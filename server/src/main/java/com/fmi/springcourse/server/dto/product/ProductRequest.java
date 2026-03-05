@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
@@ -58,9 +59,49 @@ public class ProductRequest {
 	
 	private final boolean isOnMainPage;
 	
-	public ProductRequest(String title, BigDecimal price, Integer quantity, String description,
-	                      BigDecimal discount, List<String> images, String titleImage, long[] collectionsIds,
-	                      boolean isOnMainPage) {
+	private String series;
+	
+	private String construction;
+	
+	private String model;
+	
+	private String core;
+	
+	private String finish;
+	
+	private String lockingMechanism;
+	
+	private String primaryLock;
+	
+	private String cardDescription;
+	
+	@PositiveOrZero(message = "Thickness can not be a negative number")
+	private Double thickness;
+	
+	private String frame;
+	
+	private String innerStructure;
+	
+	public ProductRequest(String title,
+	                      BigDecimal price,
+	                      Integer quantity,
+	                      String description,
+	                      BigDecimal discount,
+	                      List<String> images,
+	                      String titleImage,
+	                      long[] collectionsIds,
+	                      boolean isOnMainPage,
+	                      String construction,
+	                      String model,
+	                      String core,
+	                      String finish,
+	                      String lockingMechanism,
+	                      String primaryLock,
+	                      String cardDescription,
+	                      Double thickness,
+	                      String frame,
+	                      String innerStructure,
+	                      String series) {
 		this.title = title;
 		this.price = price;
 		this.quantity = quantity;
@@ -70,6 +111,17 @@ public class ProductRequest {
 		this.images = images;
 		this.collectionsIds = collectionsIds;
 		this.isOnMainPage = isOnMainPage;
+		this.series = series;
+		this.construction = construction;
+		this.model = model;
+		this.core = core;
+		this.finish = finish;
+		this.lockingMechanism = lockingMechanism;
+		this.primaryLock = primaryLock;
+		this.cardDescription = cardDescription;
+		this.thickness = thickness;
+		this.frame = frame;
+		this.innerStructure = innerStructure;
 	}
 	
 	public String getTitle() {
@@ -114,6 +166,94 @@ public class ProductRequest {
 	
 	public void setTitleImage(String titleImage) {
 		this.titleImage = titleImage;
+	}
+	
+	public String getSeries() {
+		return series;
+	}
+	
+	public void setSeries(String series) {
+		this.series = series;
+	}
+	
+	public String getConstruction() {
+		return construction;
+	}
+	
+	public void setConstruction(String construction) {
+		this.construction = construction;
+	}
+	
+	public String getModel() {
+		return model;
+	}
+	
+	public void setModel(String model) {
+		this.model = model;
+	}
+	
+	public String getCore() {
+		return core;
+	}
+	
+	public void setCore(String core) {
+		this.core = core;
+	}
+	
+	public String getFinish() {
+		return finish;
+	}
+	
+	public void setFinish(String finish) {
+		this.finish = finish;
+	}
+	
+	public String getLockingMechanism() {
+		return lockingMechanism;
+	}
+	
+	public void setLockingMechanism(String lockingMechanism) {
+		this.lockingMechanism = lockingMechanism;
+	}
+	
+	public String getPrimaryLock() {
+		return primaryLock;
+	}
+	
+	public void setPrimaryLock(String primaryLock) {
+		this.primaryLock = primaryLock;
+	}
+	
+	public String getCardDescription() {
+		return cardDescription;
+	}
+	
+	public void setCardDescription(String cardDescription) {
+		this.cardDescription = cardDescription;
+	}
+	
+	public Double getThickness() {
+		return thickness;
+	}
+	
+	public void setThickness(Double thickness) {
+		this.thickness = thickness;
+	}
+	
+	public String getFrame() {
+		return frame;
+	}
+	
+	public void setFrame(String frame) {
+		this.frame = frame;
+	}
+	
+	public String getInnerStructure() {
+		return innerStructure;
+	}
+	
+	public void setInnerStructure(String innerStructure) {
+		this.innerStructure = innerStructure;
 	}
 }
 

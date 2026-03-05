@@ -14,10 +14,21 @@ public record ProductDetails(Long id,
                              Integer quantity,
                              BigDecimal discount,
                              List<String> images,
-							 String titleImage,
+                             String titleImage,
                              UUID slug,
                              Instant createdAt,
-                             boolean isOnMainPage
+                             boolean isOnMainPage,
+                             String construction,
+                             String model,
+                             String core,
+                             String finish,
+                             String lockingMechanism,
+                             String primaryLock,
+                             String cardDescription,
+                             Double thickness,
+                             String frame,
+                             String innerStructure,
+                             String series
 ) {
 	public ProductDetails(Product p) {
 		this(
@@ -31,7 +42,18 @@ public record ProductDetails(Long id,
 			p.getTitleImage(),
 			p.getSlug(),
 			p.getCreatedAt(),
-			p.isOnMainPage()
+			p.isOnMainPage(),
+			p.getConstruction(),
+			p.getModel(),
+			p.getCore(),
+			p.getFinish(),
+			p.getLockingMechanism(),
+			p.getPrimaryLock(),
+			p.getCardDescription(),
+			p.getThickness(),
+			p.getFrame(),
+			p.getInnerStructure(),
+			p.getSeries()
 		);
 	}
 }

@@ -36,16 +36,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	@Transactional
 	public ProductDetails uploadProduct(ProductRequest req) {
-		var productReq = new Product(
-			req.getTitle(),
-			req.getPrice(),
-			req.getQuantity(),
-			req.getDescription(),
-			req.getDiscount(),
-			req.getImages(),
-			req.getTitleImage(),
-			req.isOnMainPage()
-		);
+		Product productReq = Product.of(req);
 		sanitizeProductDetails(productReq);
 		
 		Product product = repository.save(productReq);
@@ -64,16 +55,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	@Transactional
 	public ProductDetails updateProduct(Long id, ProductRequest req) {
-		var newProduct = new Product(
-			req.getTitle(),
-			req.getPrice(),
-			req.getQuantity(),
-			req.getDescription(),
-			req.getDiscount(),
-			req.getImages(),
-			req.getTitleImage(),
-			req.isOnMainPage()
-		);
+		Product newProduct = Product.of(req);
 		sanitizeProductDetails(newProduct);
 		
 		Product existingProduct = repository
@@ -82,6 +64,12 @@ public class ProductServiceImpl implements ProductService {
 				() -> new EntityNotFoundException("Could not update product because it was not found.")
 			);
 		
+		setDetails(existingProduct, newProduct);
+		
+		return new ProductDetails(repository.save(existingProduct));
+	}
+	
+	private void setDetails(Product existingProduct, Product newProduct) {
 		existingProduct.setTitle(newProduct.getTitle());
 		existingProduct.setDescription(newProduct.getDescription());
 		existingProduct.setDiscount(newProduct.getDiscount());
@@ -90,8 +78,17 @@ public class ProductServiceImpl implements ProductService {
 		existingProduct.setPrice(newProduct.getPrice());
 		existingProduct.setTitleImage(newProduct.getTitleImage());
 		existingProduct.setOnMainPage(newProduct.isOnMainPage());
-		
-		return new ProductDetails(repository.save(existingProduct));
+		existingProduct.setCardDescription(newProduct.getCardDescription());
+		existingProduct.setConstruction(newProduct.getConstruction());
+		existingProduct.setFinish(newProduct.getFinish());
+		existingProduct.setCore(newProduct.getCore());
+		existingProduct.setFrame(newProduct.getFrame());
+		existingProduct.setInnerStructure(newProduct.getInnerStructure());
+		existingProduct.setLockingMechanism(newProduct.getLockingMechanism());
+		existingProduct.setModel(newProduct.getModel());
+		existingProduct.setSeries(newProduct.getSeries());
+		existingProduct.setPrimaryLock(newProduct.getPrimaryLock());
+		existingProduct.setThickness(newProduct.getThickness());
 	}
 	
 	@Override
@@ -119,6 +116,24 @@ public class ProductServiceImpl implements ProductService {
 	public PageResponse<ProductListDto> listProducts(Pageable pageable) {
 		Pageable safePageable = checkPageable(pageable);
 		Page<Product> productPage = repository.findAll(safePageable);
+		
+		List<ProductListDto> content = productPage.stream()
+			.map(ProductListDto::new)
+			.toList();
+		
+		return new PageResponse<>(
+			content,
+			productPage.getTotalElements(),
+			productPage.getTotalPages()
+		);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public PageResponse<ProductListDto> listProductsBySeries(String series, Pageable pageable) {
+		Pageable safePageable = checkPageable(pageable);
+		Page<Product> productPage =
+			repository.findAllBySeries(series, safePageable);
 		
 		List<ProductListDto> content = productPage.stream()
 			.map(ProductListDto::new)

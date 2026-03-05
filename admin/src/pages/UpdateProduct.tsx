@@ -2,22 +2,16 @@ import { handleError } from "@/api/errorHandler";
 import { fetchProductBySlug, updateProduct } from "@/api/products";
 import { ProductEdit } from "@/components/ProductEdit";
 import ProductNotFound from "@/components/ProductNotFound";
+import useProductForm, { setValues } from "@/components/useProductForm";
 import type { ProductTRequest } from "@/types/product";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 
 const UpdateProduct = () => {
-  const [name, setName] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-  const [price, setPrice] = useState<number | undefined>(undefined);
-  const [quantity, setQuantity] = useState<number | "">("");
-  const [discount, setDiscount] = useState<number | "">("");
-  const [titleImage, setTitleImage] = useState<string>("");
-  const [images, setImages] = useState<string[]>([]);
+  const { values, setters } = useProductForm();
   const [id, setId] = useState<number>();
   const [foundWrongSlug, setFoundWrongSlug] = useState<boolean>(false);
   const [hasLoaded, setHasLoaded] = useState<boolean>(false);
-  const [isOnMainPage, setIsOnMainPage] = useState<boolean>(false);
 
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -28,14 +22,9 @@ const UpdateProduct = () => {
     }
 
     const updatedProduct: ProductTRequest = {
-      title: name,
-      description,
-      price,
-      quantity: quantity || 10000,
-      discount: discount || 0,
-      images,
-      titleImage,
-      isOnMainPage: isOnMainPage,
+      ...values,
+      quantity: values.quantity || 100000,
+      discount: values.discount || 0,
     };
 
     try {
@@ -53,16 +42,8 @@ const UpdateProduct = () => {
   const getProduct = async (slug: string) => {
     try {
       const product = await fetchProductBySlug(slug);
-
-      setName(product.title);
-      setDescription(product.description);
-      setDiscount(product.discount);
-      setImages(product.images);
-      setQuantity(product.quantity);
-      setTitleImage(product.titleImage);
-      setPrice(product.price);
+      setValues(setters, product);
       setId(product.id);
-      setIsOnMainPage(product.isOnMainPage);
     } catch {
       setFoundWrongSlug(true);
     }
@@ -85,24 +66,10 @@ const UpdateProduct = () => {
         hasLoaded && (
           <div>
             <ProductEdit
-              name={name}
-              setName={setName}
-              price={price}
-              setPrice={setPrice}
-              images={images}
-              setImages={setImages}
-              setTitleImage={setTitleImage}
-              titleImage={titleImage}
-              description={description}
-              setDescription={setDescription}
-              discount={discount}
-              setDiscount={setDiscount}
-              quantity={quantity}
-              setQuantity={setQuantity}
+              values={values}
+              setters={setters}
               handleProductSubmission={handleProductSubmission}
               shouldAdd={false}
-              setIsOnMainPage={setIsOnMainPage}
-              isOnMainPage={isOnMainPage}
             />
           </div>
         )

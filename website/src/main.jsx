@@ -13,7 +13,8 @@ createRoot(document.getElementById("root")).render(
     <Navabar />
     <Routes>
       <Route path="/" element={<Landing />} />
-      <Route path="/doors" element={<Doors />} />
+      <Route path="/doors" element={<Doors series={false} />} />
+      <Route path="/series/:name" element={<Doors series={true}/>} />
       <Route path="/door/:slug" element={<Details />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

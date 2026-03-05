@@ -20,21 +20,21 @@ const FeaturedDoors = ({ doors }) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col">
           <div className="sm:grid-cols-2 grid md:grid-cols-3 lg:grid-cols-4 gap-7 px-8">
             {doors &&
               doors.map((door) => (
                 <div key={door.slug}>
-                  <Card door={door} />
+                  <Card showSeries={true} door={door} />
                 </div>
               ))}
           </div>
-          <div className="flex mt-7 sm:mt-9">
+          <div className="flex mt-7 sm:mt-9 m-auto">
             <Link
               to="/doors"
               className="flex items-center gap-1 text-sm md:text-xl btn-hover rounded-[5px] px-8 py-3 font-semibold bg-primary text-white transition"
             >
-              Разгледай всички
+              Разгледай всички врати
               <ArrowRight style={{ stroke: "white" }} size={24} />
             </Link>
           </div>

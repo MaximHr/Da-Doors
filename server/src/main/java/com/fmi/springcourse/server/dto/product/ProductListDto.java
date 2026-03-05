@@ -8,10 +8,11 @@ import java.util.UUID;
 public record ProductListDto(Long id,
                              String title,
                              BigDecimal price,
-                             Integer quantity,
+                             String description,
                              BigDecimal discount,
                              String titleImage,
-                             UUID slug
+                             UUID slug,
+                             String series
 ) {
 	public ProductListDto(Product p) {
 		
@@ -19,10 +20,11 @@ public record ProductListDto(Long id,
 			p.getId(),
 			p.getTitle(),
 			p.getPrice(),
-			p.getQuantity(),
+			p.getDescription(),
 			p.getDiscount(),
 			p.getTitleImage(),
-			p.getSlug()
+			p.getSlug(),
+			p.getSeries()
 		);
 	}
 }
