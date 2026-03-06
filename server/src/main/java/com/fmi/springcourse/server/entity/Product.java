@@ -63,6 +63,7 @@ public class Product {
 	
 	private Integer quantity;
 	
+	@Column(columnDefinition = "TEXT")
 	private String description;
 	
 	private BigDecimal discount;

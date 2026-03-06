@@ -1,8 +1,13 @@
 import { Link } from "react-router";
 
+const DESCRIPTION_MAX_LENGTH = 90;
+
 const Card = ({ door, showSeries }) => {
   return (
-    <Link to={`${showSeries ? '/series/' + encodeURIComponent(door.series) : '/door/' + door.slug}`} className="min-w-60 card rounded-[5px] flex flex-col">
+    <Link
+      to={`${showSeries ? "/series/" + encodeURIComponent(door.series) : "/door/" + door.slug}`}
+      className="min-w-60 card rounded-[5px] flex flex-col"
+    >
       <div className="img-container p-5 rounded-t-[5px]">
         <img
           src={import.meta.env.VITE_R2_URL + `/image/${door.titleImage}`}
@@ -10,8 +15,14 @@ const Card = ({ door, showSeries }) => {
         />
       </div>
       <div className="info flex flex-col items-start gap-2 p-5">
-        <h1 className="text-lg font-bold">{showSeries ? door.series : door.title}</h1>
-        <p className="text-sm">{door.description}</p>
+        <h1 className="text-lg font-bold">
+          {showSeries ? door.series : door.title}
+        </h1>
+        <p className="text-sm">
+          {door.description && door.description.length > DESCRIPTION_MAX_LENGTH
+            ? door.description.slice(0, DESCRIPTION_MAX_LENGTH) + "..."
+            : door.description}
+        </p>
       </div>
     </Link>
   );

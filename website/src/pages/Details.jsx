@@ -21,7 +21,7 @@ const Details = () => {
   }, [slug]);
 
   return (
-    <>
+    <div className="min-h-[80vh]">
       {door && (
         <div className="grid grid-cols-1 lg:grid-cols-2 px-8 pt-4 mb-16 gap-8 lg:gap-16">
           <div className="flex flex-col order-2 lg:order-1">
@@ -125,7 +125,7 @@ const Details = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
