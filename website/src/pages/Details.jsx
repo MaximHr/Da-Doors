@@ -109,7 +109,7 @@ const Details = () => {
                 <p className="text-[16px] md:text-[18px]">Каса: {door.frame}</p>
               )}
               {door.lockingMechanism && (
-                <p>Тип заключване: {door.lockingMechanism}</p>
+                <p className="text-[16px] md:text-[18px]">Тип заключване: {door.lockingMechanism}</p>
               )}
               {door.primaryLock && (
                 <p className="text-[16px] md:text-[18px]">
