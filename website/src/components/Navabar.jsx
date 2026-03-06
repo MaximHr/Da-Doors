@@ -58,7 +58,7 @@ const Navbar = () => {
 
       {mobileOpen && (
         <div className="z-10 absolute left-0 w-full top-full md:hidden bg-white border-t border-border px-8 py-5 space-y-4">
-          <div className="flex items-center gap-2 bg-secondary rounded-full px-4 py-2.5 border border-border">
+          <div className="flex items-center gap-2 bg-secondary rounded-[5px] px-4 py-2.5 border border-border">
             <Search size={13} className="text-muted-foreground" />
             <input
               type="text"
@@ -83,13 +83,13 @@ const Navbar = () => {
           >
             За нас
           </HashLink>
-          <a
-            href="#contact"
+          <HashLink
+            to="/#contact"
             onClick={() => setMobileOpen(false)}
             className="block text-center px-5 py-2.5 rounded-[5px] bg-primary text-white text-sm font-semibold btn-hover transition-colors"
           >
             Свържи се с нас
-          </a>
+          </HashLink>
         </div>
       )}
     </header>

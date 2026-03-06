@@ -141,4 +141,9 @@ a {
 
 .contact-circle {
 	background-color: #cedafd;
+	transition: all 0.2s ease;
+}
+
+.img-container-details:hover {
+	
 }
