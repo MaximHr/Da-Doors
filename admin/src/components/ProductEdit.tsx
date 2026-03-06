@@ -23,9 +23,6 @@ export const ProductEdit = ({
     if (values.title.trim().length === 0) {
       handleError("Field name is required");
       return;
-    } else if (values.description.trim().length === 0) {
-      handleError("Field description is required.");
-      return;
     } else if (values.titleImage.trim().length === 0) {
       handleError("Title image is required.");
 			return;

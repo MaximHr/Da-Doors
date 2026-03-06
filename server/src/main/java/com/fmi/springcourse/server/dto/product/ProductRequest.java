@@ -16,7 +16,6 @@ import static com.fmi.springcourse.server.entity.Product.MAX_DESCRIPTION_LENGTH;
 
 public class ProductRequest {
 	public static final int MAX_TITLE_LENGTH = 255;
-	public static final int MIN_DESCRIPTION_LENGTH = 3;
 	public static final int MAX_PRICE_DIGITS = 10;
 	
 	@NotBlank(message = "Title cannot be blank")
@@ -40,9 +39,8 @@ public class ProductRequest {
 	private final Integer quantity;
 	
 	@Size(
-		min = MIN_DESCRIPTION_LENGTH,
 		max = MAX_DESCRIPTION_LENGTH,
-		message = "Description must be between {min} and {max} characters long"
+		message = "Description must be less than {max} characters long"
 	)
 	private final String description;
 	

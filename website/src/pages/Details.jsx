@@ -92,7 +92,7 @@ const Details = () => {
               )}
               {door.thickness != null && door.thickness > 0 && (
                 <p className="text-[16px] md:text-[18px]">
-                  Дебелина на кирлото: {door.thickness}
+                  Дебелина на кирлото: {door.thickness} мм
                 </p>
               )}
               {door.model && (

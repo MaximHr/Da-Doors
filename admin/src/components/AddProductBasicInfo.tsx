@@ -49,7 +49,7 @@ const AddProductBasicInfo = ({
     <form className="grid gap-6" onSubmit={(e) => e.preventDefault()}>
       <div className="grid grid-cols-2 gap-6 max-w-lg">
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="name">Име</Label>
+          <Label htmlFor="name">Име (Задължително)</Label>
           <Input
             id="name"
             type="text"
@@ -61,7 +61,7 @@ const AddProductBasicInfo = ({
           />
         </div>
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="series">Серия (опционално)</Label>
+          <Label htmlFor="series">Серия </Label>
           <Input
             id="series"
             value={values.series}
@@ -71,7 +71,7 @@ const AddProductBasicInfo = ({
           />
         </div>
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="model">Модел (опционално)</Label>
+          <Label htmlFor="model">Модел </Label>
           <Input
             id="model"
             value={values.model}
@@ -81,7 +81,7 @@ const AddProductBasicInfo = ({
           />
         </div>
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="construction">Конструкция (опционално)</Label>
+          <Label htmlFor="construction">Конструкция </Label>
           <Input
             id="construction"
             value={values.construction}
@@ -91,7 +91,7 @@ const AddProductBasicInfo = ({
           />
         </div>
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="thickness">Дебелина на крилото в мм. (опционално)</Label>
+          <Label htmlFor="thickness">Дебелина на крилото в мм. </Label>
           <Input
             id="thickness"
 						min={0}
@@ -103,7 +103,7 @@ const AddProductBasicInfo = ({
           />
         </div>
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="innerStructure">Вътрешна структура (опционално)</Label>
+          <Label htmlFor="innerStructure">Вътрешна структура </Label>
           <Input
             id="innerStructure"
             value={values.innerStructure}
@@ -113,7 +113,7 @@ const AddProductBasicInfo = ({
           />
         </div>
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="core">Пълнеж (опционално)</Label>
+          <Label htmlFor="core">Пълнеж </Label>
           <Input
             id="core"
             value={values.core}
@@ -123,7 +123,7 @@ const AddProductBasicInfo = ({
           />
         </div>
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="frame">Каса (опционално)</Label>
+          <Label htmlFor="frame">Каса </Label>
           <Input
             id="frame"
             value={values.frame}
@@ -133,7 +133,7 @@ const AddProductBasicInfo = ({
           />
         </div>
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="lockingMechanism">Тип заключване (опционално)</Label>
+          <Label htmlFor="lockingMechanism">Тип заключване </Label>
           <Input
             id="lockingMechanism"
             value={values.lockingMechanism}
@@ -143,7 +143,7 @@ const AddProductBasicInfo = ({
           />
         </div>
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="primaryLock">Основна брава (опционално)</Label>
+          <Label htmlFor="primaryLock">Основна брава </Label>
           <Input
             id="primaryLock"
             value={values.primaryLock}
@@ -153,7 +153,7 @@ const AddProductBasicInfo = ({
           />
         </div>
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="finish">Покритие (опционално)</Label>
+          <Label htmlFor="finish">Покритие </Label>
           <Input
             id="finish"
             value={values.finish}
@@ -171,7 +171,7 @@ const AddProductBasicInfo = ({
         <Label htmlFor="checkbox">Покажи ме на началната страница</Label>
       </div>
       <div className="grid gap-3">
-        <Label htmlFor="image-btn">Качи основна снимка</Label>
+        <Label htmlFor="image-btn">Качи основна снимка (Задължително)</Label>
         <ImageUploadButton
           images={values.titleImage}
           className="max-w-lg h-[125px]"
@@ -200,7 +200,7 @@ const AddProductBasicInfo = ({
         )}
       </div>
       <div className="grid gap-3">
-        <Label htmlFor="image-btn">Качи допълнителни снимки (Опционално)</Label>
+        <Label htmlFor="image-btn">Качи допълнителни снимки </Label>
         <ImageUploadButton
           images={values.images}
           className="max-w-lg h-[125px]"

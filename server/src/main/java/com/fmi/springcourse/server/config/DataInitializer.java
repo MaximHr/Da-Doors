@@ -20,7 +20,7 @@ public class DataInitializer {
 	@Bean
 	CommandLineRunner initUsers(UserRepository userRepository,
 	                            PasswordEncoder passwordEncoder) {
-		return args -> {
+		return _ -> {
 			if (userRepository.count() == 0) {
 				String pass = passwordEncoder.encode(adminPassword);
 				Role role = Role.OWNER;
