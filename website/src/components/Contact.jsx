@@ -27,29 +27,29 @@ const Contact = () => {
               <div className="flex items-center gap-3">
                 <img src={instagram} className="w-7 h-7 md:w-8 md:h-8" alt="instagram icon" />
                 <a
-                  href="#"
+                  href="https://www.instagram.com/dadoors.bg/"
                   className="text-base md:text-lg text-primary hover:opacity-80 transition"
                 >
-                  @dadoors
+                  @dadoors.bg
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <img src={facebook} className="w-7 h-7 md:w-8 md:h-8" alt="facebook icon" />
                 <a
-                  href="#"
+                  href="https://www.facebook.com/share/1CRuMKcDMM/?mibextid=wwXIfr"
                   className="text-base md:text-lg text-primary hover:opacity-80 transition"
                 >
-                  @insta
+                  DA Doors
                 </a>
               </div>
 
               <div className="flex items-center gap-3 translate-x-[-6px] md:translate-x-[-8px] translate-y-[-6px] md:translate-y-[-8px]">
                 <img src={tiktok} className="w-10 h-10 md:w-12 md:h-12" alt="tiktok icon" />
                 <a
-                  href="#"
+                  href="https://www.tiktok.com/@da_doors"
                   className="translate-x-[-3px] md:translate-x-[-5px] text-base md:text-lg text-primary hover:opacity-80 transition"
                 >
-                  dadoors
+                  @da_doors
                 </a>
               </div>
             </div>
@@ -58,10 +58,10 @@ const Contact = () => {
                 <Mail size={28} className="hidden md:block text-primary flex-shrink-0" />
                 <Mail size={24} className="md:hidden text-primary flex-shrink-0" />
                 <a
-                  href="mailto:info@doors.com"
+                  href="mailto:dadoors.bg@gmail.com"
                   className="text-base md:text-lg text-primary hover:opacity-80 transition"
                 >
-                  info@doors.com
+                  dadoors.bg@gmail.com
                 </a>
               </div>
 
@@ -72,7 +72,7 @@ const Contact = () => {
                   href="tel:+359888123456"
                   className="text-base md:text-lg text-primary hover:opacity-80 transition"
                 >
-                  +359 888 123 456
+                  +359 88 291 4442
                 </a>
               </div>
             </div>

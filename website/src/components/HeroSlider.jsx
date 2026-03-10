@@ -1,15 +1,16 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, ArrowDown } from "lucide-react";
 import { Link } from "react-router";
 import hero1 from "../assets/hero-1.jpg";
 
 const slides = [
   {
     image: hero1,
-    title: "The Grand\nEntrance",
-    subtitle: "Solid wood & steel front doors built for lasting impressions.",
-    cta: "Разгледай всички",
-  }
+    title: "Входът към вашия дом започва тук",
+    subtitle:
+      "Модерни блиндирани врати, съчетаващи сигурност, дизайн и дълготрайност.",
+    cta: "Разгледай всички модели",
+  },
 ];
 
 const animationTime = 500;
@@ -40,7 +41,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div 
+    <div
       className="max-w-7xl m-auto relative w-full h-screen overflow-hidden"
       onTouchStart={handleTouchStart}
       onTouchEnd={(e) => {
@@ -68,25 +69,34 @@ const HeroSlider = () => {
     >
       <ImageSlider currentImage={currentImage} />
 
-      <div className="absolute inset-0 flex flex-col justify-center px-12">
+      <div className="absolute inset-0 flex flex-col justify-center px-8">
         <div
           className="flex flex-col items-center transition-opacity duration-500 ease-in-out"
           style={{ opacity: textVisible ? 1 : 0 }}
         >
-          <h1 className="text-white-400 text-center font-display text-4xl md:text-6xl lg:text-6xl font-black text-white leading-none mb-8 whitespace-pre-line">
-          {slides[currentText].title}
-        </h1>
+          <h1 className="max-w-[80vw] text-white-400 text-center font-display text-4xl md:text-6xl lg:text-6xl font-black text-white leading-none mb-8 whitespace-pre-line">
+            {slides[currentText].title}
+          </h1>
           <p className="text-sm text-center text-white/80 md:text-lg mb-8">
             {slides[currentText].subtitle}
           </p>
-          <div className="flex gap-7">
-            <Link
-              to="/doors"
-              className="flex items-center gap-1 text-sm md:text-lg btn-hover rounded-[5px] px-8 py-3 font-semibold bg-primary text-white transition"
-            >
-              {slides[currentText].cta}
-							<ArrowRight style={{stroke: "white"}} size={20}/>
-            </Link>
+          <div className="flex flex-col gap-6">
+            <div className="flex gap-7">
+              <Link
+                to="/doors"
+                className="text-center w-full flex items-center gap-1 text-sm md:text-lg btn-hover rounded-[5px] px-8 py-3 font-semibold bg-primary text-white transition"
+              >
+                {slides[currentText].cta}
+              </Link>
+            </div>
+            <div className="flex gap-7">
+              <a
+                href="#contact"
+                className="hover:bg-slate-200 text-center w-full text-sm md:text-lg bg-white rounded-[5px] px-8 py-3 font-semibold transition"
+              >
+                Поискай оферта
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -107,15 +117,18 @@ const Surroundings = ({
   setTextVisible,
   setCurrentText,
 }) => {
-  const goTo = useCallback((index) => {
-    setCurrentImage(index);
+  const goTo = useCallback(
+    (index) => {
+      setCurrentImage(index);
 
-    setTextVisible(false);
-    setTimeout(() => {
-      setCurrentText(index);
-      setTextVisible(true);
-    }, animationTime);
-  }, [setCurrentImage, setCurrentText, setTextVisible]);
+      setTextVisible(false);
+      setTimeout(() => {
+        setCurrentText(index);
+        setTextVisible(true);
+      }, animationTime);
+    },
+    [setCurrentImage, setCurrentText, setTextVisible],
+  );
 
   const next = useCallback(
     () => goTo((currentImage + 1) % slides.length),
@@ -178,8 +191,11 @@ const ImageSlider = ({ currentImage }) => {
           className="flex h-full transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${currentImage * 100}%)` }}
         >
-          {slides.map(slide => (
-            <div key={slide.title} className="w-full h-full flex-shrink-0 flex items-center justify-center">
+          {slides.map((slide) => (
+            <div
+              key={slide.title}
+              className="w-full h-full flex-shrink-0 flex items-center justify-center"
+            >
               <img
                 src={slide.image}
                 alt={slide.title}

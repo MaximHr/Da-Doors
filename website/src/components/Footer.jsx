@@ -16,13 +16,13 @@ const Footer = () => {
         {new Date().getFullYear()} DA Doors | Всички права запазени.
       </p>
       <div className="flex items-center gap-5">
-        <a target="_blank" href="https://instagram.com">
+        <a href="https://www.instagram.com/dadoors.bg/">
           <img className="transition-opacity hover:opacity-100 w-5 h-5 opacity-85" src={instagram} alt="instagram icon" />
         </a>
-        <a target="_blank" href="https://facebook.com">
+        <a href="https://www.facebook.com/share/1CRuMKcDMM/?mibextid=wwXIfr">
           <img className="transition-opacity hover:opacity-100 w-5 h-5 opacity-85" src={facebook} alt="facebook icon" />
         </a>
-        <a target="_blank" href="https://tiktok.com">
+        <a href="https://www.tiktok.com/@da_doors">
           <img className=" transition-opacity hover:opacity-100 w-5 h-5 opacity-85" src={tiktok} alt="tiktok icon" />
         </a>
       </div>

@@ -18,6 +18,12 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-7">
           <nav className="hidden md:flex items-center gap-7 flex-1 justify-center">
             <Link
+              to="/"
+              className="hover-primary text-sm font-semibold text-foreground/70 transition-colors"
+            >
+              Начало
+            </Link>
+            <Link
               to="/doors"
               className="hover-primary text-sm font-semibold text-foreground/70 transition-colors"
             >
@@ -68,7 +74,11 @@ const Navbar = () => {
               className="bg-transparent text-sm outline-none flex-1 text-foreground placeholder:text-muted-foreground font-body"
             />
           </div>
-
+          <Link
+            to="/"
+            onClick={() => setMobileOpen(false)}
+            className="block text-sm font-medium text-foreground/70 hover:text-accent transition-colors py-1 font-body"
+          >Начало</Link>
           <Link
             to="/doors"
             onClick={() => setMobileOpen(false)}
