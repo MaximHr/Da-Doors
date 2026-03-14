@@ -33,7 +33,7 @@ const faqs = [
       "Цената зависи от модела, размера и избраните опции. Можете да изпратите запитване или да посетите нашия шоурум за персонална оферта.",
   },
   {
-    question: "Къде мога да видя вратите на живо??",
+    question: "Къде мога да видя вратите на живо?",
     answer:
       "Можете да видите избрани модели в нашия шоурум в София.",
   },
@@ -47,7 +47,7 @@ export const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="bg-background relative">
+    <section id="faq" className="bg-background relative pt-16">
       <div className="hidden lg:block circle circle-first absolute">
         <div className="inner-circle"></div>
       </div>

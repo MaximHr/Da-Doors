@@ -46,7 +46,7 @@ const Products = () => {
   return (
     <>
       <div className="flex items-center gap-3 justify-between mb-7">
-        <h1 className="text-2xl special-font">
+        <h1 className="text-xl md:text-2xl special-font">
           Продукти {`(${totalElements})`}
         </h1>
         <Link to="/admin/add-product">

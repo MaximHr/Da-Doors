@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getDoorDetails } from "../api";
+import { ShoppingBag, ShoppingBasket, ShoppingCart } from "lucide-react";
 
 const Details = () => {
   const [door, setDoor] = useState();
@@ -11,7 +12,6 @@ const Details = () => {
     const data = await getDoorDetails(slug);
     setDoor(data);
     setSelectedImage(data.titleImage);
-    console.log(data);
   };
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const Details = () => {
                   return (
                     <div
                       key={image}
-                          className={`${selectedImage == image ? "border-[#f6b142]" : "border-transparent"} border-[3px] cursor-pointer p-4 h-[180px] rounded-[5px] flex items-center justify-center bg-[#f4f3f8]`}
+                      className={`${selectedImage == image ? "border-[#f6b142]" : "border-transparent"} border-[3px] cursor-pointer p-4 h-[180px] rounded-[5px] flex items-center justify-center bg-[#f4f3f8]`}
                       onClick={() => setSelectedImage(image)}
                     >
                       <img
@@ -85,6 +85,12 @@ const Details = () => {
                   Модел: {door.series}
                 </p>
               )}
+              {door.price != null && door.price > 0 && (
+                <p className="text-[16px] md:text-[18px]">
+                  Цена: {door.price} €
+                </p>
+              )}
+							
               {door.construction && (
                 <p className="text-[16px] md:text-[18px]">
                   Конструкция: {door.construction}
@@ -109,7 +115,9 @@ const Details = () => {
                 <p className="text-[16px] md:text-[18px]">Каса: {door.frame}</p>
               )}
               {door.lockingMechanism && (
-                <p className="text-[16px] md:text-[18px]">Тип заключване: {door.lockingMechanism}</p>
+                <p className="text-[16px] md:text-[18px]">
+                  Тип заключване: {door.lockingMechanism}
+                </p>
               )}
               {door.primaryLock && (
                 <p className="text-[16px] md:text-[18px]">
@@ -122,6 +130,10 @@ const Details = () => {
                 </p>
               )}
             </div>
+            <button className="self-start mt-4 min-w-[300px] flex justify-center items-center gap-2 text-sm md:text-xl btn-hover rounded-[5px] px-8 py-3 font-semibold bg-primary text-white transition">
+              Поръчай
+							<ShoppingCart style={{strokeWidth: "3px", stroke: "white"}} size={18} />
+            </button>
           </div>
         </div>
       )}

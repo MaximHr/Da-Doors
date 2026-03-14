@@ -47,7 +47,7 @@ const AddProductBasicInfo = ({
 
   return (
     <form className="grid gap-6" onSubmit={(e) => e.preventDefault()}>
-      <div className="grid grid-cols-2 gap-6 max-w-lg">
+      <div className="grid grd-cols-1 md:grid-cols-2 gap-6 max-w-lg">
         <div className="grid gap-3 flex-1/2">
           <Label htmlFor="name">Име (Задължително)</Label>
           <Input
@@ -77,6 +77,17 @@ const AddProductBasicInfo = ({
             value={values.model}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setters.setModel(e.target.value)
+            }
+          />
+        </div>
+        <div className="grid gap-3 flex-1/2">
+          <Label htmlFor="model">Цена </Label>
+          <Input
+						type="number"
+            id="model"
+            value={values.price}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setters.setPrice(e.target.value)
             }
           />
         </div>

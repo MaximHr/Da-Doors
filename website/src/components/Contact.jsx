@@ -19,7 +19,7 @@ const Contact = () => {
               Все още имате въпроси?
             </h2>
             <h2 className="mt-4 md:mt-0 font-display text-4xl sm:text-5xl md:text-6xl font-black leading-none">
-              Ние сме на среща.
+              Ние сме насреща.
             </h2>
           </div>
           <div className="flex xs:flex-row xs:gap-14 gap-6 flex-col-reverse mt-4">
@@ -69,7 +69,7 @@ const Contact = () => {
                 <Phone size={26} className="hidden md:block text-primary flex-shrink-0" />
                 <Phone size={22} className="md:hidden text-primary flex-shrink-0" />
                 <a
-                  href="tel:+359888123456"
+                  href="tel:+359882914442"
                   className="text-base md:text-lg text-primary hover:opacity-80 transition"
                 >
                   +359 88 291 4442

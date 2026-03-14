@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="flex items-center gap-2">
         <Phone className="opacity-80" size={20} style={{ stroke: "white" }} />
         <p className="text-sm sm:text-[16px] text-white opacity-85">
-          088 454 7575
+          +359 88 291 4442
         </p>
       </div>
       <p className="text-sm sm:text-[16px] text-white opacity-85">

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { ChevronLeft, ChevronRight, ArrowRight, ArrowDown } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router";
 import hero1 from "../assets/hero-1.jpg";
 
@@ -74,13 +74,13 @@ const HeroSlider = () => {
           className="flex flex-col items-center transition-opacity duration-500 ease-in-out"
           style={{ opacity: textVisible ? 1 : 0 }}
         >
-          <h1 className="max-w-[80vw] text-white-400 text-center font-display text-4xl md:text-6xl lg:text-6xl font-black text-white leading-none mb-8 whitespace-pre-line">
+          <h1 className="max-w-[80vw] text-center font-display text-4xl md:text-6xl lg:text-6xl font-black text-white leading-none mb-8 whitespace-pre-line">
             {slides[currentText].title}
           </h1>
-          <p className="text-sm text-center text-white/80 md:text-lg mb-8">
+          <p className="text-sm text-center text-white/80 md:text-lg">
             {slides[currentText].subtitle}
           </p>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 mt-8">
             <div className="flex gap-7">
               <Link
                 to="/doors"

@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify";
 import logo from "@/assets/logo.png";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import img from "../assets/hero-1.jpg"
 
 export default function LogIn() {
 	const navigate = useNavigate();
@@ -29,8 +30,8 @@ export default function LogIn() {
       </div>
       <div className="bg-muted relative hidden lg:block">
         <img
-          src="/placeholder.svg"
-          alt="Image"
+          src={img}
+          alt="image of a door"
           className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
         />
       </div>
