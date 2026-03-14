@@ -81,13 +81,13 @@ const AddProductBasicInfo = ({
           />
         </div>
         <div className="grid gap-3 flex-1/2">
-          <Label htmlFor="model">Цена </Label>
+          <Label htmlFor="price">Цена </Label>
           <Input
 						type="number"
-            id="model"
+            id="price"
             value={values.price}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setters.setPrice(e.target.value)
+              setters.setPrice(Number(e.target.value))
             }
           />
         </div>

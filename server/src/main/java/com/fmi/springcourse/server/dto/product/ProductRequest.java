@@ -24,7 +24,6 @@ public class ProductRequest {
 	
 	@DecimalMin(
 		value = "0.0",
-		inclusive = false,
 		message = "Price must be greater than 0"
 	)
 	@Digits(

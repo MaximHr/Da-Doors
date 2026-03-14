@@ -1,7 +1,7 @@
 export interface ProductFormCommonAttributes {
   title: string;
   description: string;
-  price: number | undefined;
+  price: number | "";
   quantity: number | "";
   discount: number | "";
   images: string[];
@@ -23,7 +23,7 @@ export interface ProductFormCommonAttributes {
 export interface ProductFormStateSetters {
   setTitle: React.Dispatch<React.SetStateAction<string>>;
   setDescription: React.Dispatch<React.SetStateAction<string>>;
-  setPrice: React.Dispatch<React.SetStateAction<number | undefined>>;
+  setPrice: React.Dispatch<React.SetStateAction<number | "">>;
   setQuantity: React.Dispatch<React.SetStateAction<number | "">>;
   setDiscount: React.Dispatch<React.SetStateAction<number | "">>;
   setImages: React.Dispatch<React.SetStateAction<string[]>>;
