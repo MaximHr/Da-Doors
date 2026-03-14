@@ -7,7 +7,7 @@ body {
 }
 
 html {
-	overflow-x: hidden;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -22,6 +22,13 @@ a {
   box-sizing: border-box;
   font-weight: 500;
   color: #3e3f3f;
+}
+
+.text-da {
+  color: #494949;
+}
+.text-doors {
+  color: #43aad9;
 }
 
 @layer base {
@@ -42,8 +49,8 @@ a {
 }
 
 .bg-primary:disabled {
-	opacity: 0.9;
-	cursor: auto;
+  opacity: 0.9;
+  cursor: auto;
 }
 
 .text-primary {
@@ -104,46 +111,80 @@ a {
 }
 
 .footer {
-	background-color: var(--text-color);
+  background-color: var(--text-color);
 }
 
 .yellowish-bc {
-	background-color: #FFE19C;
+  background-color: #ffe19c;
 }
 
 .circle {
-	width: 200px;
-	height: 200px;
-	z-index: -1;
-	background-color: #FFE19C;
-	border-radius: 5%;
+  width: 200px;
+  height: 200px;
+  z-index: -1;
+  background-color: #ffe19c;
+  border-radius: 5%;
 }
 
 .circle-first {
-	left: -100px;
-	top: 30px;
+  left: -100px;
+  top: 30px;
 }
 
 .inner-circle {
-	width: 100px;
-	height: 100px;
-	background-color: #FF784F;
-	border-radius: 5%;
-	position: relative;
-	transform-origin: center;
-	transform: translate(50%, 50%);
+  width: 100px;
+  height: 100px;
+  background-color: #ff784f;
+  border-radius: 5%;
+  position: relative;
+  transform-origin: center;
+  transform: translate(50%, 50%);
 }
 
 .circle-second {
-	right: -100px;
-	top: 410px;
+  right: -100px;
+  top: 410px;
 }
 
 .contact-circle {
-	background-color: #cedafd;
-	transition: all 0.2s ease;
+  background-color: #cedafd;
+  transition: all 0.2s ease;
 }
 
-.img-container-details:hover {
-	
+@keyframes lineAnimationLTR {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes lineAnimationTTB {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.line-animate {
+	background-color: var(--primary-color);
+  animation: lineAnimationLTR 0.75s ease-out;
+}
+
+@media screen and (max-width: 768px) {
+	.star {
+		width: 55px;
+	}
+	.line-animate {
+		animation: lineAnimationTTB 0.75s ease-out;
+	}
+}
+
+@media screen and (max-width: 468px) {
+	.star {
+		display: none;
+	}
 }

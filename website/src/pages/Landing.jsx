@@ -5,6 +5,8 @@ import FeaturedDoors from "../components/FeaturedDoors";
 import HeroSlider from "../components/HeroSlider";
 import { getHomePageDoors } from "../api";
 import Contact from "../components/Contact";
+import HowWeWork from "../components/HowWeWork";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 const Landing = () => {
   const [doors, setDoors] = useState([{}, {}, {}, {}]);
@@ -30,6 +32,8 @@ const Landing = () => {
     <>
       <HeroSlider />
       <FeaturedDoors doors={doors} />
+			<WhyChooseUs />
+			<HowWeWork />
       <About />
       <FAQ />
 			<Contact />
