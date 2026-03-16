@@ -33,6 +33,7 @@ public class SubmissionServiceImpl implements SubmissionService {
 			resend.emails()
 				.send(params);
 		} catch (ResendException e) {
+			e.printStackTrace();
 			throw new EmailException("Failed to send email", e);
 		}
 	}
