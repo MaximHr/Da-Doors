@@ -6,15 +6,12 @@ import com.fmi.springcourse.server.valueobject.FormData;
 import com.resend.Resend;
 import com.resend.core.exception.ResendException;
 import com.resend.services.emails.model.CreateEmailOptions;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SubmissionServiceImpl implements SubmissionService {
+	private static final String EMAIL_ADDRESS = "dadoors.bg@gmail.com";
 	private final Resend resend;
-	
-	@Value("${admin.email}")
-	private String emailAddress;
 	
 	public SubmissionServiceImpl(Resend resend) {
 		this.resend = resend;
@@ -24,7 +21,7 @@ public class SubmissionServiceImpl implements SubmissionService {
 	public void sendEmail(FormData formData) {
 		CreateEmailOptions params = CreateEmailOptions.builder()
 			.from("submissions@support.dadoors.com")
-			.to(emailAddress)
+			.to(EMAIL_ADDRESS)
 			.subject("New form submission from dadoors.com")
 			.html(generateEmailBody(formData))
 			.build();
@@ -33,7 +30,6 @@ public class SubmissionServiceImpl implements SubmissionService {
 			resend.emails()
 				.send(params);
 		} catch (ResendException e) {
-			e.printStackTrace();
 			throw new EmailException("Failed to send email", e);
 		}
 	}
