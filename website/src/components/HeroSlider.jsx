@@ -17,7 +17,7 @@ const animationTime = 500;
 const slideAfter = 7000;
 const swipeThreshold = 50;
 
-const HeroSlider = () => {
+const HeroSlider = ({ onOpenPopup }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [currentText, setCurrentText] = useState(0);
   const [textVisible, setTextVisible] = useState(true);
@@ -90,12 +90,12 @@ const HeroSlider = () => {
               </Link>
             </div>
             <div className="flex gap-7">
-              <a
-                href="#contact"
+              <button
+								onClick={onOpenPopup}
                 className="hover:bg-slate-200 text-center w-full text-sm md:text-lg bg-white rounded-[5px] px-8 py-3 font-semibold transition"
               >
                 Поискай оферта
-              </a>
+              </button>
             </div>
           </div>
         </div>

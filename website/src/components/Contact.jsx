@@ -5,7 +5,7 @@ import tiktok from "../assets/tiktok.svg";
 
 const Contact = () => {
   return (
-    <div className="pt-16" id="contact">
+    <div className="max-w-7xl mx-auto pt-16" id="contact">
       <div className="relative overflow-hidden rounded-[5px] blue-bc max-w-7xl mx-8 flex gap-7 flex-col lg:flex-row lg:items-stretch mb-16">
         <div className="contact-circle right-[-350px] absolute w-[600px] h-[600px] rounded-full"></div>
         <div className="blue-bc right-[-420px] top-[50%] translate-y-[-50%] absolute w-[600px] h-[600px] rounded-full"></div>

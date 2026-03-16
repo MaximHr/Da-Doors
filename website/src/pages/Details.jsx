@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getDoorDetails } from "../api";
-import { ShoppingBag, ShoppingBasket, ShoppingCart } from "lucide-react";
 
-const Details = () => {
+const Details = ({onOpenPopup}) => {
   const [door, setDoor] = useState();
   const [selectedImage, setSelectedImage] = useState(null);
   const { slug } = useParams();
@@ -130,9 +129,8 @@ const Details = () => {
                 </p>
               )}
             </div>
-            <button className="self-start mt-4 min-w-[300px] flex justify-center items-center gap-2 text-sm md:text-xl btn-hover rounded-[5px] px-8 py-3 font-semibold bg-primary text-white transition">
+            <button onClick={onOpenPopup} className="self-start mt-4 min-w-[300px] flex justify-center items-center gap-2 text-sm md:text-xl btn-hover rounded-[5px] px-8 py-3 font-semibold bg-primary text-white transition">
               Поръчай
-							<ShoppingCart style={{strokeWidth: "3px", stroke: "white"}} size={18} />
             </button>
           </div>
         </div>

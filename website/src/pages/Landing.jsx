@@ -7,8 +7,9 @@ import { getHomePageDoors } from "../api";
 import Contact from "../components/Contact";
 import HowWeWork from "../components/HowWeWork";
 import WhyChooseUs from "../components/WhyChooseUs";
+import { ToastContainer } from "react-toastify";
 
-const Landing = () => {
+const Landing = ({ onOpenPopup }) => {
   const [doors, setDoors] = useState([{}, {}, {}, {}]);
 
   useEffect(() => {
@@ -30,13 +31,14 @@ const Landing = () => {
 
   return (
     <>
-      <HeroSlider />
+			<ToastContainer />
+      <HeroSlider onOpenPopup={onOpenPopup} />
       <FeaturedDoors doors={doors} />
-			<WhyChooseUs />
-			<HowWeWork />
+      <WhyChooseUs />
+      <HowWeWork onOpenPopup={onOpenPopup} />
       <About />
       <FAQ />
-			<Contact />
+      <Contact />
     </>
   );
 };

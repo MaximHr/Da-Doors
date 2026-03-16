@@ -170,21 +170,31 @@ a {
 }
 
 .line-animate {
-	background-color: var(--primary-color);
+  background-color: var(--primary-color);
   animation: lineAnimationLTR 0.75s ease-out;
 }
 
 @media screen and (max-width: 768px) {
-	.star {
-		width: 55px;
-	}
-	.line-animate {
-		animation: lineAnimationTTB 0.75s ease-out;
-	}
+  .star {
+    width: 55px;
+  }
+  .line-animate {
+    animation: lineAnimationTTB 0.75s ease-out;
+  }
 }
 
 @media screen and (max-width: 468px) {
-	.star {
-		display: none;
-	}
+  .star {
+    display: none;
+  }
+}
+
+.popup-input {
+  font-size: 13px !important;
+}
+
+@media (min-width: 640px) {
+  .popup-input {
+    font-size: 14px !important;
+  }
 }

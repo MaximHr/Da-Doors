@@ -52,8 +52,7 @@ export const fetchDoors = async (page) => {
 export const getDoorDetails = async (slug) => {
   try {
     const res = await fetch(
-      import.meta.env.VITE_SERVER_URL +
-        `/products/${slug}`,
+      import.meta.env.VITE_SERVER_URL + `/products/${slug}`,
       {
         method: "GET",
         headers: {
@@ -97,4 +96,22 @@ export const fetchDoorsBySeries = async (page, series) => {
   } catch (e) {
     console.log("Could not load products");
   }
+};
+
+export const submitRequest = async (formData) => {
+  const res = await fetch(import.meta.env.VITE_SERVER_URL + `/submissions/`, {
+    method: "POST",
+    body: JSON.stringify(formData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error();
+  }
+
+  const data = await res.json();
+
+  return data;
 };
