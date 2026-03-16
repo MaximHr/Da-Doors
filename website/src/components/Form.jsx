@@ -32,7 +32,8 @@ const Form = ({ onClose }) => {
         city: "",
         message: "",
       });
-
+			onClose();
+			
 			toast.success("Запитването беше изпратено успешно!");
     } catch (e) {
 			toast.error(e.message || "Не успяхме да изпратим запитването.");

@@ -67,6 +67,7 @@ public class SecurityConfig {
 	) {
 		auth
 			.requestMatchers(HttpMethod.GET, "/products/**").permitAll()
+			.requestMatchers(HttpMethod.POST, "/submissions/").permitAll()
 			.requestMatchers(HttpMethod.POST, "/products/upload").authenticated()
 			.requestMatchers(HttpMethod.DELETE, "/products/*").authenticated()
 			.requestMatchers(HttpMethod.PUT, "/products/*").authenticated()

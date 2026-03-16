@@ -113,5 +113,4 @@ public class ProductController {
 	public ExceptionResponse illegalArgumentHandler(IllegalArgumentException e) {
 		return new ExceptionResponse(HttpStatus.BAD_REQUEST, List.of(e.getMessage()));
 	}
-	
 }

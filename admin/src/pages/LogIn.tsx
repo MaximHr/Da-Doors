@@ -3,18 +3,17 @@ import { ToastContainer } from "react-toastify";
 import logo from "@/assets/logo.png";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
-import img from "../assets/hero-1.jpg"
+import img from "../assets/hero-1.jpg";
 
 export default function LogIn() {
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 
-	useEffect(() => {
-		if (localStorage.getItem("token") != null) {
-			navigate("/admin");
-		}
-	}, [navigate]);
+  useEffect(() => {
+    if (localStorage.getItem("token") != null) {
+      navigate("/admin");
+    }
+  }, [navigate]);
 
-	
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">
