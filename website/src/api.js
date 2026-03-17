@@ -28,7 +28,7 @@ export const fetchDoors = async (page) => {
   try {
     const res = await fetch(
       import.meta.env.VITE_SERVER_URL +
-        `/products/list?page=${page}&size=${PAGE_SIZE}&sort=createdAt,desc`,
+        `/products/list?page=${page}&size=${PAGE_SIZE}&sort=series,asc&sort=createdAt,desc`,
       {
         method: "GET",
         headers: {

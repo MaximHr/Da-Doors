@@ -10,6 +10,7 @@ const Details = ({onOpenPopup}) => {
   const loadDoor = async (slug) => {
     const data = await getDoorDetails(slug);
     setDoor(data);
+		console.log(data);
     setSelectedImage(data.titleImage);
   };
 
@@ -81,7 +82,7 @@ const Details = ({onOpenPopup}) => {
               )}
               {door.model && (
                 <p className="text-[16px] md:text-[18px]">
-                  Модел: {door.series}
+                  Модел: {door.model}
                 </p>
               )}
               {door.price != null && door.price > 0 && (
@@ -100,9 +101,9 @@ const Details = ({onOpenPopup}) => {
                   Дебелина на кирлото: {door.thickness} мм
                 </p>
               )}
-              {door.model && (
+              {door.innerStructure && (
                 <p className="text-[16px] md:text-[18px]">
-                  Вътрешна структура: {door.model}
+                  Вътрешна структура: {door.innerStructure}
                 </p>
               )}
               {door.core && (
