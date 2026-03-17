@@ -23,13 +23,19 @@ const Doors = ({ series }) => {
     setDoors(data.content);
     setTotalElements(data.totalElements);
     setTotalPages(data.totalPages);
-		setPage(0);
   };
 
   useEffect(() => {
     loadProducts(page);
+		setPage(0);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [page, series, name]);
+  }, [series, name]);
+
+	  useEffect(() => {
+    loadProducts(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [page]);
+
 
   const handlePrev = () => {
     if (page > 0) setPage((prev) => prev - 1);
