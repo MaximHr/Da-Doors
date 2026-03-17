@@ -26,10 +26,8 @@ const Doors = ({ series }) => {
   };
 
   useEffect(() => {
-    loadProducts(page);
 		setPage(0);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [series, name]);
+  }, [series]);
 
 	  useEffect(() => {
     loadProducts(page);
