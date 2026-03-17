@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { fetchDoors, fetchDoorsBySeries } from "../api";
 import Card from "../components/Card";
 import { useParams } from "react-router";
+import { useLocation } from "react-router";
 
 const Doors = ({ series }) => {
   const [page, setPage] = useState(0);
   const [doors, setDoors] = useState([]);
   const [totalElements, setTotalElements] = useState();
   const [totalPages, setTotalPages] = useState(0);
+	const location = useLocation();
 
   const { name } = useParams();
 
@@ -27,12 +29,12 @@ const Doors = ({ series }) => {
 
   useEffect(() => {
 		setPage(0);
-  }, [series]);
+  }, [location]);
 
 	  useEffect(() => {
     loadProducts(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [page]);
+  }, [page, location]);
 
 
   const handlePrev = () => {
@@ -69,11 +71,11 @@ const Doors = ({ series }) => {
               disabled={page === 0}
               className="border not:disabled:cursor-pointer px-5 py-1.5 rounded-[5px] bg-white text-sm font-semibold transition-colors"
             >
-              Prev
+              Предишна
             </button>
 
             <span className="self-center text-sm">
-              Page {page + 1} of {totalPages}
+              Стр. {page + 1} от {totalPages}
             </span>
 
             <button
@@ -81,7 +83,7 @@ const Doors = ({ series }) => {
               disabled={page === totalPages - 1}
               className="cursor-pointer btn-hover px-5 py-1.5 rounded-[5px] bg-primary text-white text-sm font-semibold transition-colors"
             >
-              Next
+              Следваща
             </button>
           </div>
         )}
