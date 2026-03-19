@@ -19,8 +19,9 @@ const Form = ({ onClose }) => {
   };
 
   const handleSubmit = async (e) => {
+		e.preventDefault();
+		
     try {
-      e.preventDefault();
       const res = await submitRequest(form);
 
       setForm({
@@ -154,9 +155,12 @@ const Form = ({ onClose }) => {
                     <option value="" disabled>
                       Избери врата
                     </option>
-                    <option value="interior">Интериорна</option>
-                    <option value="pvc">Входна</option>
-                    <option value="entrance">PVC</option>
+                    <option value="Интериорна">Интериорна</option>
+                    <option value="Входна">Входна</option>
+                    <option value="PVC">PVC</option>
+                    <option value="Retro">Retro</option>
+                    <option value="Prestige">Prestige</option>
+                    <option value="EU">EU</option>
                   </select>
                   <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
                     <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
