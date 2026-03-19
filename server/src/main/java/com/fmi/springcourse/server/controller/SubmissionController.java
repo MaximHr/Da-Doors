@@ -26,6 +26,7 @@ public class SubmissionController {
 	
 	@PostMapping("/")
 	public Response<String> sendEmail(@RequestBody FormData formData) {
+		System.out.println("controller " + formData);
 		submissionService.sendEmail(formData);
 		
 		return new Response<>("Request sent successfully.");

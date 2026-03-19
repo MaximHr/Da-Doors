@@ -8,7 +8,7 @@ const PaginationButtons = ({ totalPages, page, setPage }) => {
   };
 
   return (
-    <div className="flex gap-4">
+    <div className="flex sm:gap-4 gap-2 flex-col sm:flex-row">
       <button
         onClick={handlePrev}
         disabled={page === 0}

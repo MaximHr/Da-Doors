@@ -41,17 +41,19 @@ const Doors = ({ series }) => {
     <div>
       <div className="max-w-7xl mx-auto px-8 py-4 min-h-[500px]">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-7">
-          <div className="flex justify-between w-full">
+          <div className="gap-6 flex-col md:flex-row flex items-center justify-between w-full">
             <h2 className="font-black font-display text-3xl md:text-4xl leading-none whitespace-pre-line">
               {series ? `Серия ${name}` : "Нашите Врати"}
               {totalElements > 0 && ` (${totalElements})`}
             </h2>
             {totalPages > 1 && (
-							<PaginationButtons
-								totalPages={totalPages}
-								setPage={setPage}
-								page={page}
-							/>
+              <div className="hidden sm:block">
+                <PaginationButtons
+                  totalPages={totalPages}
+                  setPage={setPage}
+                  page={page}
+                />
+              </div>
             )}
           </div>
         </div>

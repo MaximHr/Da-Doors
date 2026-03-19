@@ -19,6 +19,7 @@ public class SubmissionServiceImpl implements SubmissionService {
 	
 	@Override
 	public void sendEmail(FormData formData) {
+		System.out.println(formData);
 		CreateEmailOptions params = CreateEmailOptions.builder()
 			.from("submissions@support.dadoors.com")
 			.to(EMAIL_ADDRESS)
@@ -30,6 +31,7 @@ public class SubmissionServiceImpl implements SubmissionService {
 			resend.emails()
 				.send(params);
 		} catch (ResendException e) {
+			e.printStackTrace();
 			throw new EmailException("Failed to send email", e);
 		}
 	}
